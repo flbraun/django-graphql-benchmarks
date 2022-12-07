@@ -38,8 +38,7 @@ export default function() {
       "Content-Type": "application/json"
     }
   };
-  const url = __ENV.API_URL || "https://django-graphql-benchmark.herokuapp.com";
-  const response = http.post(`${url}/graphene-graphql/`, payload, params);
+  const response = http.post(`${__ENV.API_HOST}/graphene-graphql/`, payload, params);
 
   check(response, {
     "is status 200": r => r.status === 200
