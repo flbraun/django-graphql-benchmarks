@@ -7,7 +7,10 @@ import numpy as np
 
 results = []
 
-pathlist = Path("results").glob("*.json")
+pwd = Path().absolute()
+results_dir = pwd / "benchmarks" / "results"
+
+pathlist = results_dir.glob("*.json")
 for path in pathlist:
     # because path is object not string
     path_in_str = str(path)
@@ -66,5 +69,5 @@ for path in pathlist:
     )
 
 
-with open("./results/all-results.json", "w") as results_file:
+with open(results_dir / "all-results.json", "w") as results_file:
     json.dump(results, results_file, indent=2)

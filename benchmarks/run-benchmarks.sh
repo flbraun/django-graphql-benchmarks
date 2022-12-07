@@ -13,4 +13,4 @@ for bench in $bench_files; do
   set +x
 done
 
-python "$script_dir/format-results.py"
+poetry run python "$script_dir/format-results.py"
