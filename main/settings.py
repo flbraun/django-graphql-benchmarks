@@ -27,6 +27,8 @@ SECRET_KEY = "django-insecure-h$$^224(@wre@*+^_+1-yqnergs%52-6vzeeywmgcq2gm-c0hd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = strtobool(os.environ.get("DEBUG", "true"))
 
+ONLY_GRAPHENE_V2 = strtobool(os.environ.get("ONLY_GRAPHENE_V2", "false"))
+
 ALLOWED_HOSTS = ["*"]
 
 
@@ -40,9 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "graphene_django",
-    "rest_framework",
     "movies.apps.MoviesConfig",
 ]
+if not ONLY_GRAPHENE_V2:
+    INSTALLED_APPS.append("rest_framework")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
