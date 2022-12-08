@@ -3,8 +3,7 @@ import os
 
 import dash
 from dash.dependencies import Input, Output
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
 
 colors = [
     "#636EFA",
@@ -21,8 +20,6 @@ colors = [
 
 
 def get_data(results, fn):
-    all_servers = {result["api_name"]: True for result in results}.keys()
-
     api_names = [result["api_name"] for result in results]
     query_results = [result["results"] for result in results]
 
@@ -37,21 +34,6 @@ def get_data(results, fn):
             },
         }
     ]
-
-    # print(program_rps_map)
-    ys = []
-    for server_name in all_servers:
-        query_results = [
-            result["results"] for result in results if result["api_name"] == server_name
-        ]
-        dataRow = {
-            "x": "top250",
-            "y": list(map(fn, query_results)),
-            "type": "bar",
-            "name": server_name,
-        }
-        ys.append(dataRow)
-    return ys
 
 
 def get_ymetric_fn(yMetric, on="latency"):
@@ -75,8 +57,6 @@ def get_ymetric_fn(yMetric, on="latency"):
         def yMetricFn(x):
             return x[on]["min"]
 
-    # elif yMetric == "ERRORS":
-    #     yMetricFn = lambda x: sum(x['summary']['errors'].values())
     elif yMetric == "MAX":
 
         def yMetricFn(x):
@@ -143,12 +123,10 @@ def updateGraph(yMetric):
 @app.callback(
     Output("requests-vs-query", "figure"),
     [
-        # Input('benchmark-index', 'value'),
         Input("response-time-metric", "value")
     ],
 )
 def updateGraph2(yMetric):
-    # print(bench_results)
     figure = {
         "data": get_data(bench_results, get_ymetric_fn(yMetric, on="requests")),
         "layout": {
