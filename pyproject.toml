@@ -8,9 +8,7 @@ authors = []
 python = "^3.10"
 requests = "*"
 Django = "==3.2.*" # LTS
-strawberry-graphql = "*"
-graphene = ">3"
-djangorestframework = "*"
+graphene = "<3"
 graphene-django = "*"
 gunicorn = "*"
 whitenoise = "*"
