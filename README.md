@@ -11,13 +11,12 @@ The Django app is no longer bound to be deployed on Heroku, but is built as a Do
 ## setup + running
 Prerequisites for running the benchmarks:
 1. A local version of the `main` and `main_graphenev2_only` branches
-2. Docker, Python 3.8+ and a recent version of Node
+2. Docker and Python 3.8+
 3. [poetry](https://python-poetry.org/docs/#installation)
-4. [k6](https://k6.io/docs/get-started/installation/)
-5. `mkdir -p benchmarks/results`
+4. `mkdir -p results`
 
 You can use the `run.sh` script to deploy and bench the containers locally, or use it as a blueprint for other deployments.  
-`run.sh` requires a list of Python versions to be benched as arguments, e.g. `run.sh 3.8 3.9 3.10`
+`run.sh` requires a list of target Python versions as positional arguments, e.g. `run.sh 3.9 3.10`
 
 ## latest results
 ![latest results](latest.png)

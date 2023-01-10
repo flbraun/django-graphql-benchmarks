@@ -8,7 +8,7 @@ import numpy as np
 results = []
 
 pwd = Path().absolute()
-results_dir = pwd / "benchmarks" / "results"
+results_dir = pwd / "results"
 
 pathlist = results_dir.glob("*.json")
 for path in pathlist:
