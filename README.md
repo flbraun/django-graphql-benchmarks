@@ -20,3 +20,4 @@ You can use the `run.sh` script to deploy and bench the containers locally, or u
 
 ## latest results
 ![latest results](latest.png)
+Benchmark ran on an AMD Ryzen 9 5900X with 64GB memory and 8 uWSGI workers.
