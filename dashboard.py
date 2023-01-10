@@ -86,7 +86,7 @@ def get_ymetric_fn(yMetric, on="latency"):
     return lambda x: int(yMetricFn(x))
 
 
-with open("./benchmarks/results/all-results.json", "r") as json_file:
+with open("./results/all-results.json", "r") as json_file:
     bench_results = json.load(json_file)
 
 
