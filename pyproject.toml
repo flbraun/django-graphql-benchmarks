@@ -5,7 +5,7 @@ description = ""
 authors = []
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.8,<4"
 requests = "*"
 Django = "==3.2.*" # LTS
 strawberry-graphql = "*"

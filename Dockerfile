@@ -1,4 +1,5 @@
-FROM python:3.10-slim-bullseye
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
 
 WORKDIR /djapp
 ENV PATH="${PATH}:/root/.local/bin"
