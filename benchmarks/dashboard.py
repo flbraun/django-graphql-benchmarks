@@ -1,22 +1,35 @@
 import json
 import os
+import random
 
 import dash
 from dash.dependencies import Input, Output
 from dash import dcc, html
 
 colors = [
-    "#636EFA",
-    "#EF553B",
-    "#00CC96",
-    "#AB63FA",
-    "#FFA15A",
-    "#19D3F3",
-    "#FF6692",
-    "#B6E880",
-    "#FF97FF",
-    "#FECB52",
+    "#77DD77",
+    "#836953",
+    "#89CFF0",
+    "#99C5C4",
+    "#9ADEDB",
+    "#AA9499",
+    "#AAF0D1",
+    "#B2FBA5",
+    "#B39EB5",
+    "#BEE7A5",
+    "#BEFD73",
+    "#C1C6FC",
+    "#C6A4A4",
+    "#CB99C9",
+    "#FDFD96",
+    "#FF6961",
+    "#FF964F",
+    "#FF9899",
+    "#FFB7CE",
+    "#CA9BF7",
+    "#BDB0D0",
 ]
+random.shuffle(colors)
 
 
 def get_data(results, fn):
